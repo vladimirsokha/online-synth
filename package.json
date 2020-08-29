@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/vladimirsokha/online-synth/issues"
   },
-  "homepage": "https://github.com/vladimirsokha/online-synth#readme"
+  "homepage": "https://github.com/vladimirsokha/online-synth#readme",
+  "dependencies": {
+    "portable-synthesizer": "^1.0.1"
+  }
 }
