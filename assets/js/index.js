@@ -54,26 +54,26 @@ window.addEventListener("keydown", function (event) {
     }
 
     switch (event.key) {
-        case "Z":
-
+        case "z":
+            beep("261.6");
             break;
-        case "X":
-
+        case "x":
+            beep("293.7");
             break;
-        case "C":
-
+        case "c":
+            beep("329.6");
             break;
-        case "V":
-
+        case "v":
+            beep("349.2");
             break;
-        case "B":
-
+        case "b":
+            beep("392.0");
             break;
-        case "N":
-
+        case "n":
+            beep("440.0");
             break;
-        case "M":
-
+        case "m":
+            beep("493.9");
             break;
         default:
             return; // Quit when this doesn't handle the key event.
