@@ -4,75 +4,81 @@ show();
 
 function show() {
 
-  switch (document.getElementById("tIn").value * 1) {
-    case 0: type = 'sine'; break;
-    case 1: type = 'square'; break;
-    case 2: type = 'sawtooth'; break;
-    case 3: type = 'triangle'; break;
-  }
-  document.getElementById("tOut").innerHTML = type;
+    switch (document.getElementById("tIn").value * 1) {
+        case 0:
+            type = 'sine';
+            break;
+        case 1:
+            type = 'square';
+            break;
+        case 2:
+            type = 'sawtooth';
+            break;
+        case 3:
+            type = 'triangle';
+            break;
+    }
+    document.getElementById("tOut").innerHTML = type;
 
-  volume = document.getElementById("vIn").value / 100;
-  document.getElementById("vOut").innerHTML = volume;
+    volume = document.getElementById("vIn").value / 100;
+    document.getElementById("vOut").innerHTML = volume;
 
-  duration = document.getElementById("dIn").value;
-  document.getElementById("dOut").innerHTML = duration + ' ms';
+    duration = document.getElementById("dIn").value;
+    document.getElementById("dOut").innerHTML = duration + ' ms';
 }
 
 function beep(frequency) {
-  var oscillator = audioCtx.createOscillator();
-  var gainNode = audioCtx.createGain();
+    var oscillator = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
 
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
 
-  gainNode.gain.value = volume;
-  oscillator.frequency.value = frequency;
-  oscillator.type = type;
+    gainNode.gain.value = volume;
+    oscillator.frequency.value = frequency;
+    oscillator.type = type;
 
-  oscillator.start();
+    oscillator.start();
 
-  setTimeout(
-    function() {
-      oscillator.stop();
-    },
-    duration
-  );
+    setTimeout(
+        function () {
+            oscillator.stop();
+        },
+        duration
+    );
 }
 
 window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
-      return; // Do nothing if the event was already processed
+        return; // Do nothing if the event was already processed
     }
-  
+
     switch (event.key) {
-      case "Down": // IE/Edge specific value
-      case "ArrowDown":
+        case "Z":
 
-        break;
-      case "Up": // IE/Edge specific value
-      case "ArrowUp":
+            break;
+        case "X":
 
-        break;
-      case "Left": // IE/Edge specific value
-      case "ArrowLeft":
+            break;
+        case "C":
 
-        break;
-      case "Right": // IE/Edge specific value
-      case "ArrowRight":
+            break;
+        case "V":
 
-        break;
-      case "Enter":
+            break;
+        case "B":
 
-        break;
-      case "Esc": // IE/Edge specific value
-      case "Escape":
+            break;
+        case "N":
 
-        break;
-      default:
-        return; // Quit when this doesn't handle the key event.
+            break;
+        case "M":
+
+            break;
+        default:
+            return; // Quit when this doesn't handle the key event.
     }
-  
+
     // Cancel the default action to avoid it being handled twice
     event.preventDefault();
-  }, true);
+}, true);
