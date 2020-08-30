@@ -39,3 +39,40 @@ function beep(frequency) {
     duration
   );
 }
+
+window.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) {
+      return; // Do nothing if the event was already processed
+    }
+  
+    switch (event.key) {
+      case "Down": // IE/Edge specific value
+      case "ArrowDown":
+
+        break;
+      case "Up": // IE/Edge specific value
+      case "ArrowUp":
+
+        break;
+      case "Left": // IE/Edge specific value
+      case "ArrowLeft":
+
+        break;
+      case "Right": // IE/Edge specific value
+      case "ArrowRight":
+
+        break;
+      case "Enter":
+
+        break;
+      case "Esc": // IE/Edge specific value
+      case "Escape":
+
+        break;
+      default:
+        return; // Quit when this doesn't handle the key event.
+    }
+  
+    // Cancel the default action to avoid it being handled twice
+    event.preventDefault();
+  }, true);

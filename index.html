@@ -10,6 +10,17 @@
 
 <body>
     <div class="container">
+        <h1>Online drummer</h1>
+        <h3>You can play as by buttonn press, as by keyboard buttons</h3>
+        <ul>
+            <li>C4: Z</li>
+            <li>D4: X</li>
+            <li>E4: C</li>
+            <li>F4: V</li>
+            <li>G4: B</li>
+            <li>A4: N</li>
+            <li>B4: M</li>
+        </ul>
         frequency
         <input type="range" id="fIn" min="40" max="6000" oninput="show()" />
         <span id="fOut"></span><br>
@@ -30,6 +41,8 @@
         <button onclick='beep("392.0");'>G4</button>
         <button onclick='beep("440.0");'>A4</button>
         <button onclick='beep("493.9");'>B4</button>
+        <br> <br>
+        
     </div>
     <script src="assets/js/index.js"></script>
 </body>
