@@ -3,8 +3,6 @@ audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 show();
 
 function show() {
-  frequency = document.getElementById("fIn").value;
-  document.getElementById("fOut").innerHTML = frequency + ' Hz';
 
   switch (document.getElementById("tIn").value * 1) {
     case 0: type = 'sine'; break;
@@ -21,7 +19,7 @@ function show() {
   document.getElementById("dOut").innerHTML = duration + ' ms';
 }
 
-function beep() {
+function beep(frequency) {
   var oscillator = audioCtx.createOscillator();
   var gainNode = audioCtx.createGain();
 
@@ -40,4 +38,4 @@ function beep() {
     },
     duration
   );
-};
+}
