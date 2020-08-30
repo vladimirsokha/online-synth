@@ -49,9 +49,6 @@ function beep(frequency) {
 }
 
 window.addEventListener("keydown", function (event) {
-    if (event.defaultPrevented) {
-        return; // Do nothing if the event was already processed
-    }
 
     switch (event.key) {
         case "z":
