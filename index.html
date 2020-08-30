@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport">
     <title>Online synth</title>
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
+
 <body>
     <div class="container">
-        <button onclick="fuckingNoise()">NOIZE BUTTON</button> <br> <br>
-        <button onclick="playC4()">C</button>
-        <button onclick="playD4()">D</button>
-        <button onclick="playE4()">E</button>
-        <button onclick="playF4()">F</button>
-        <button onclick="playG4()">G</button>
-        <button onclick="playA4()">A</button>
-        <button onclick="playB4()">B</button>
+        frequency
+        <input type="range" id="fIn" min="40" max="6000" oninput="show()" />
+        <span id="fOut"></span><br>
+        type
+        <input type="range" id="tIn" min="0" max="3" oninput="show()" />
+        <span id="tOut"></span><br>
+        volume
+        <input type="range" id="vIn" min="0" max="100" oninput="show()" />
+        <span id="vOut"></span><br>
+        duration
+        <input type="range" id="dIn" min="1" max="5000" oninput="show()" />
+        <span id="dOut"></span>
+        <br>
+        <button onclick='beep();'>Play</button>
     </div>
     <script src="assets/js/index.js"></script>
 </body>
+
 </html>

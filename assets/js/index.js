@@ -1,46 +1,43 @@
-var context = new AudioContext();
-var o = context.createOscillator();
-o.type = "sine";
+audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 
-function fuckingNoise() {
-    o.connect(context.destination);
-    o.start();
+show();
+
+function show() {
+  frequency = document.getElementById("fIn").value;
+  document.getElementById("fOut").innerHTML = frequency + ' Hz';
+
+  switch (document.getElementById("tIn").value * 1) {
+    case 0: type = 'sine'; break;
+    case 1: type = 'square'; break;
+    case 2: type = 'sawtooth'; break;
+    case 3: type = 'triangle'; break;
+  }
+  document.getElementById("tOut").innerHTML = type;
+
+  volume = document.getElementById("vIn").value / 100;
+  document.getElementById("vOut").innerHTML = volume;
+
+  duration = document.getElementById("dIn").value;
+  document.getElementById("dOut").innerHTML = duration + ' ms';
 }
 
-var frequencys = ['261.6', '293.7', '329.6', '349.2', '392.0', '440.0', '493.9'];
+function beep() {
+  var oscillator = audioCtx.createOscillator();
+  var gainNode = audioCtx.createGain();
 
-function playC4(){
-    o.frequency.value = frequencys[0];
-    o.connect(context.destination);
-    o.start();
-}
-function playD4(){
-    o.frequency.value = frequencys[1];
-    o.connect(context.destination);
-    o.start();
-}
-function playE4(){
-    o.frequency.value = frequencys[2];
-    o.connect(context.destination);
-    o.start();
-}
-function playF4(){
-    o.frequency.value = frequencys[3];
-    o.connect(context.destination);
-    o.start();
-}
-function playG4(){
-    o.frequency.value = frequencys[4];
-    o.connect(context.destination);
-    o.start();
-}
-function playA4(){
-    o.frequency.value = frequencys[5];
-    o.connect(context.destination);
-    o.start();
-}
-function playB4(){
-    o.frequency.value = frequencys[6];
-    o.connect(context.destination);
-    o.start();
-}
+  oscillator.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  gainNode.gain.value = volume;
+  oscillator.frequency.value = frequency;
+  oscillator.type = type;
+
+  oscillator.start();
+
+  setTimeout(
+    function() {
+      oscillator.stop();
+    },
+    duration
+  );
+};
